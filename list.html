@@ -15,7 +15,9 @@
         document.getElementById('submit').addEventListener(
             'click', function(e){
                 e.preventDefault();
-                userList.appendChild(`<li>'${textEntry.value}</li>`);
+                listItemNode = document.createElement('li');
+                listItemNode.appendChild(document.createTextNode(textEntry.value))
+                userList.appendChild(listItemNode);
             }
         )
     </script>
