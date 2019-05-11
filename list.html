@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>
+        </title>
+    </head>
+    <body>
+        <input type="text" id="text">
+        <input type="submit" id="submit">
+        <ul class="user-list">
+        </ul>
+    </body>
+    <script>
+        const userList = document.querySelector('.user-list');
+        const textEntry = document.getElementById('text');
+        document.getElementById('submit').addEventListener(
+            'click', function(e){
+                e.preventDefault();
+                userList.appendChild(`<li>'${textEntry.value}</li>`);
+            }
+        )
+    </script>
+</html>
