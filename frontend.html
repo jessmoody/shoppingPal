@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>
+        </title>
+    </head>
+    <style>
+        .item-list{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+        }
+
+        .item {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .table-header {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            background-color: #000000;
+            color: white;
+            align-content: 
+
+        }
+
+        .table-header *{
+            width: 10vw;
+        }
+
+        .item *{
+            width: 10vw;
+        }
+
+        img {
+            border-style: dotted;
+            border-color: black;
+        }
+
+        p {
+            border-style: dotted;
+            border-color: black;
+            text-align: center;
+        }
+
+        .spacer {
+            padding-top: 10vh;
+        }
+    </style>
+    <body>
+        <div class="spacer"></div>
+        <h2>Inactive Items</h2>
+        <div class="item-list" id="inactive">
+            <div class="table-header">
+                <p>text here</p>
+                <p>more text</p>            
+                <p>even more</p>
+                <p>more and more</p>
+            </div>
+            <div class="item" id="item-1">
+                <input type="checkbox" value="recurring">
+                <input type="checkbox" value="item-1">
+                <img src="TAP_Ad_300x300.jpg" alt="img">
+                <p>text goes here</p>
+            </div>
+            <div class="item" id="item-2">
+                <input type="checkbox" value="recurring">
+                <input type="checkbox" value="item-2">
+                <img src="TAP_Ad_300x300.jpg" alt="img">
+                <p>text goes here</p>
+            </div>
+        </div>
+        <hr>
+        <div class="item-list" id="active">
+            <h2>Active Items</h2>
+            <div class="item" id="item-3">
+                <input type="checkbox" value="recurring">
+                <input type="checkbox" value="item-3">
+                <img src="TAP_Ad_300x300.jpg" alt="img">
+                <p>text goes here</p>
+            </div>
+<!-- set checked attribute in template -->
+            <div class="item" id="item-4">
+                <input type="checkbox" value="recurring">
+                <input type="checkbox" value="item-4">
+                <img src="TAP_Ad_300x300.jpg" alt="img">
+                <p>text goes here</p>
+            </div>
+        </div>
+    </body>
+    <script>
+        document.querySelectorAll('.item').forEach(function(element){
+            element.addEventListener('change', function(){
+                if (this.parentNode.id == 'active'){
+                    document.querySelector('#inactive').appendChild(this)   
+                }
+                else if (this.parentNode.id == 'inactive') {
+                    document.querySelector('#active').appendChild(this)
+                }
+            })
+        })
+
+        // data = ''
+
+        // fetch('url-here', { method:'PUT', body: JSON.stringify(data) })
+    </script>
+</html>
+
