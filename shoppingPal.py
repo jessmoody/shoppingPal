@@ -3,12 +3,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("frontend.html")
 
 @app.route("/inventory", methods=["POST"])
 def inventory():
-    return render_template('inventory.html')
- 
+    item = request.form['firstItem']
+    return render_template('submitPage.html', firstItem = item)
 
 @app.route("/lists/tasklist/tasks", methods=["POST"]) #Add task
 def insert():
@@ -21,3 +21,7 @@ def update():
 @app.route("/lists/tasklist/tasks/task", methods=["DELETE"])
 def delete():
     return render_template('list.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
