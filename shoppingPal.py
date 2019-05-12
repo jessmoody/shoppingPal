@@ -5,6 +5,10 @@ app = Flask(__name__)
 def home():
     return render_template("frontend.html")
 
+    # item0 = request.form['new_item']
+    # return render_template("frontend.html", new_item = item0)
+   
+
     # first_item = request.form['item1']
     # return render_template("frontend.html", item1 = first_item)
 
