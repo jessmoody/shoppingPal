@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-@app.route("/", method = "POST")
+@app.route("/")
 def home():
-    first_item = request.form['item1']
-    return render_template("frontend.html", item1 = first_item)
+    return render_template("frontend.html")
+
+    # first_item = request.form['item1']
+    # return render_template("frontend.html", item1 = first_item)
 
 # @app.route("/inventory", methods=["POST"])
 # def inventory():
