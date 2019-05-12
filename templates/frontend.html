@@ -69,26 +69,35 @@
 
     </style>
     <body>
+        
         <div class="spacer"></div>
         <h2>Inventory</h2>
         <div class="item-list" id="inactive">
             <div class="table-header">
-                <p>text here</p>
-                <p>more text</p>            
-                <p>even more</p>
-                <p>more and more</p>
+                <p>Shopping Pal</p>
+                <p>Home</p>            
+                <p>Inventory</p>
+                <p>List</p>
             </div>
+            
             <div class="item" id="item-1">
                 <input type="checkbox" value="recurring">
                 <input type="checkbox" value="item-1">
                 <img src="TAP_Ad_300x300.jpg" alt="img">
-                <p>text goes here</p>
+                <form action = "/" method = "POST">
+                <input type = "text"
+                       name = "item1">
+                <!-- <input type = "submit" value = "Submit" a href="frontend.html"> -->
+                <!-- <p>{{item1}}</p> -->
+            </form>
             </div>
             <div class="item" id="item-2">
                 <input type="checkbox" value="recurring">
                 <input type="checkbox" value="item-2">
                 <img src="TAP_Ad_300x300.jpg" alt="img">
-                <p>text goes here</p>
+                <!-- <p>text goes here</p> -->
+                <input type = "text"
+                name = "item-2">
             </div>
                 <div class="circle-wrapper">
                 <div class="circle-plus" name="circle">
@@ -102,7 +111,9 @@
                 <input type="checkbox" value="recurring">
                 <input type="checkbox" name="new-item">
                 <img src="TAP_Ad_300x300.jpg" alt="img">
-                <p>text goes here</p>
+                <input type = "text"
+                name = "new_item">
+                <!-- <p>text goes here</p> -->
             </div>
         </div>
         <hr>
@@ -112,16 +123,21 @@
                 <input type="checkbox" value="recurring">
                 <input type="checkbox" value="item-3">
                 <img src="TAP_Ad_300x300.jpg" alt="img">
-                <p>text goes here</p>
+                <!-- <p>text goes here</p> -->
+                <input type = "text"
+                name = "item-3">
             </div>
 <!-- set checked attribute in template -->
             <div class="item" id="item-4">
                 <input type="checkbox" value="recurring">
                 <input type="checkbox" value="item-4">
                 <img src="TAP_Ad_300x300.jpg" alt="img">
-                <p>text goes here</p>
+                <!-- <p>text goes here</p> -->
+                <input type = "text"
+                name = "item-4">
             </div>
         </div>
+    
     </body>
     <script>
         document.querySelectorAll('.item').forEach(function(element){

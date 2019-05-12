@@ -5,22 +5,29 @@ app = Flask(__name__)
 def home():
     return render_template("frontend.html")
 
-@app.route("/inventory", methods=["POST"])
-def inventory():
-    item = request.form['firstItem']
-    return render_template('submitPage.html', firstItem = item)
+    # item0 = request.form['new_item']
+    # return render_template("frontend.html", new_item = item0)
+   
 
-@app.route("/lists/tasklist/tasks", methods=["POST"]) #Add task
-def insert():
-    return render_template('list.html')
+    # first_item = request.form['item1']
+    # return render_template("frontend.html", item1 = first_item)
 
-@app.route("/lists/tasklist/tasks/task", methods=["PUT"]) #Update task
-def update():
-    return render_template('list.html')
+# @app.route("/inventory", methods=["POST"])
+# def inventory():
+#     item = request.form['firstItem']
+#     return render_template('submitPage.html', firstItem = item)
 
-@app.route("/lists/tasklist/tasks/task", methods=["DELETE"])
-def delete():
-    return render_template('list.html')
+# @app.route("/lists/tasklist/tasks", methods=["POST"]) #Add task
+# def insert():
+#     return render_template('list.html')
+
+# @app.route("/lists/tasklist/tasks/task", methods=["PUT"]) #Update task
+# def update():
+#     return render_template('list.html')
+
+# @app.route("/lists/tasklist/tasks/task", methods=["DELETE"])
+# def delete():
+#     return render_template('list.html')
 
 
 if __name__ == '__main__':
