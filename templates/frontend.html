@@ -136,12 +136,14 @@
         })
 
         document.querySelector('.circle-wrapper').addEventListener('click', function(){
-            const newElement = document.getElementById('new-item').cloneNode(true);
-            newElement.name = 'item' + '-' + document.querySelectorAll('.item').length;
-            newElement.id = 'item' + '-' + document.querySelectorAll('.item').length;
-            newElement.getElementsByTagName('input')[1].name = newElement.name;
-            newElement.style.display = null;
-            document.getElementById('inactive').insertBefore(newElement, this);
+            if (document.querySelectorAll('.item').length < 20){
+                const newElement = document.getElementById('new-item').cloneNode(true);
+                newElement.name = 'item' + '-' + document.querySelectorAll('.item').length;
+                newElement.id = 'item' + '-' + document.querySelectorAll('.item').length;
+                newElement.getElementsByTagName('input')[1].name = newElement.name;
+                newElement.style.display = null;
+                document.getElementById('inactive').insertBefore(newElement, this);
+            }
         })
 
         // data = ''
