@@ -3,14 +3,14 @@ app = Flask(__name__)
 
 @app.route("/", methods=["POST"])
 def home():
-    firstItem = request.form['itemOne']
+    firstItem = request.form['item1']
     # fh = open(“inventoryFile.txt”, “a”) 
     # fh.write(firstItem) 
     # fh.close 
     # Fh = open(“hello.txt”, “r”) 
     # print fh.read() 
     # fh.close()
-    return render_template("frontend.html", itemOne = firstItem)
+    return render_template("frontend.html", item1 = firstItem)
 
 """ @app.route("/inventory", methods=["POST"])
 def inventory():
