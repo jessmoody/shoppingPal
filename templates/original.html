@@ -1,0 +1,149 @@
+<html>
+    <head>
+        <title>
+        </title>
+    </head>
+    <style>
+        .item-list{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .item {
+            display: flex;
+            flex-direction: row;
+        }
+        .table-header {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            background-color: #000000;
+            color: white;
+            /* align-content:  */
+        }
+        .table-header *{
+            width: 10vw;
+        }
+        .item *{
+            width: 10vw;
+        }
+/*        img {
+            border-style: dotted;
+            border-color: black;
+        }
+        p {
+            border-style: dotted;
+            border-color: black;
+            text-align: center;
+        }*/
+        .spacer {
+            padding-top: 10vh;
+        }
+        .circle-wrapper {
+            width: 40vw;
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+        }
+        .circle-plus {height:5vw; width:5vw; font-size:0.25em /*Will change icon size*/;margin: 0 auto;}
+.circle-plus .circle {position: relative; width: 4.5em; height: 4.5em; border-radius: 100%; border: solid .8em #DFDAD7; }
+.circle-plus .circle .horizontal {position: absolute; background-color: #DFDAD7; width: 2.4em; height: .7em; top: 1.9em; left: 1.05em;}
+.circle-plus .circle .vertical {position: absolute; background-color: #DFDAD7; width: .7em; height: 2.4em; top: 1.05em; left: 1.9em;}
+    </style>
+    <body>
+        
+        <div class="spacer"></div>
+        <h2>Inventory</h2>
+        <div class="item-list" id="inactive">
+            <div class="table-header">
+                <p>text here</p>
+                <p>more text</p>            
+                <p>even more</p>
+                <p>more and more</p>
+            </div>
+            
+            <div class="item" id="item-1">
+                <input type="checkbox" value="recurring">
+                <input type="checkbox" value="item-1">
+                <img src="TAP_Ad_300x300.jpg" alt="img">
+                <form action = "/" method = "POST">
+                <input type = "text"
+                       name = "item1">
+                <!-- <input type = "submit" value = "Submit" a href="frontend.html"> -->
+                <!-- <p>{{item1}}</p> -->
+            </form>
+            </div>
+            <div class="item" id="item-2">
+                <input type="checkbox" value="recurring">
+                <input type="checkbox" value="item-2">
+                <img src="TAP_Ad_300x300.jpg" alt="img">
+                <p>text goes here</p>
+                <input type = "text"
+                name = "item-2">
+            </div>
+                <div class="circle-wrapper">
+                <div class="circle-plus" name="circle">
+                  <div class="circle">
+                    <div class="horizontal"></div>
+                    <div class="vertical"></div>
+                  </div>
+                </div>
+            </div>
+            <div class="item" id="new-item" style="display:none">
+                <input type="checkbox" value="recurring">
+                <input type="checkbox" name="new-item">
+                <img src="TAP_Ad_300x300.jpg" alt="img">
+                <p>text goes here</p>
+            </div>
+        </div>
+        <hr>
+        <div class="item-list" id="active">
+            <h2>Shopping List</h2>
+            <div class="item" id="item-3">
+                <input type="checkbox" value="recurring">
+                <input type="checkbox" value="item-3">
+                <img src="TAP_Ad_300x300.jpg" alt="img">
+                <p>text goes here</p>
+                <input type = "text"
+                name = "item-3">
+            </div>
+<!-- set checked attribute in template -->
+            <div class="item" id="item-4">
+                <input type="checkbox" value="recurring">
+                <input type="checkbox" value="item-4">
+                <img src="TAP_Ad_300x300.jpg" alt="img">
+                <p>text goes here</p>
+                <input type = "text"
+                name = "item-4">
+            </div>
+        </div>
+    
+    </body>
+    <script>
+        document.querySelectorAll('.item').forEach(function(element){
+            element.addEventListener('change', function(){
+                if (this.parentNode.id == 'active'){
+                    document.querySelector('#inactive').appendChild(this)   
+                }
+                else if (this.parentNode.id == 'inactive') {
+                    document.querySelector('#active').appendChild(this)
+                }
+            })
+        })
+        document.querySelector('.circle-wrapper').addEventListener('click', function(){
+            if (document.querySelectorAll('.item').length < 20){
+                const newElement = document.getElementById('new-item').cloneNode(true);
+                newElement.name = 'item' + '-' + document.querySelectorAll('.item').length;
+                newElement.id = 'item' + '-' + document.querySelectorAll('.item').length;
+                newElement.getElementsByTagName('input')[1].name = newElement.name;
+                newElement.style.display = null;
+                document.getElementById('inactive').insertBefore(newElement, this);
+            }
+        })
+        // data = ''
+        // fetch('url-here', { method:'PUT', body: JSON.stringify(data) })
+    </script>
+</html>
