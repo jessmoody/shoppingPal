@@ -126,8 +126,9 @@
     <script>
         document.querySelectorAll('.item').forEach(function(element){
             element.addEventListener('change', function(){
+                const circle = document.querySelector('.circle-wrapper')
                 if (this.parentNode.id == 'active'){
-                    document.querySelector('#inactive').appendChild(this)   
+                    document.querySelector('#inactive').insertBefore(circle, this)   
                 }
                 else if (this.parentNode.id == 'inactive') {
                     document.querySelector('#active').appendChild(this)
