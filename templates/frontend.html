@@ -125,13 +125,12 @@
     </body>
     <script>
         document.querySelectorAll('.item').forEach(function(element){
-            const circle = document.querySelector('circle-wrapper');
             element.addEventListener('change', function(){
                 if (this.parentNode.id == 'active'){
                     document.querySelector('#inactive').appendChild(this)   
                 }
                 else if (this.parentNode.id == 'inactive') {
-                    document.querySelector('#active').insertBefore(circle, this)
+                    document.querySelector('#active').appendChild(this)
                 }
             })
         })
