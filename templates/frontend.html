@@ -50,6 +50,23 @@
         .spacer {
             padding-top: 10vh;
         }
+
+        .circle-wrapper {
+            width: 40vw;
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+        }
+
+        .circle-plus {height:5vw; width:5vw; font-size:0.25em /*Will change icon size*/;margin: 0 auto;}
+.circle-plus .circle {position: relative; width: 4.5em; height: 4.5em; border-radius: 100%; border: solid .8em #DFDAD7; }
+.circle-plus .circle .horizontal {position: absolute; background-color: #DFDAD7; width: 2.4em; height: .7em; top: 1.9em; left: 1.05em;}
+.circle-plus .circle .vertical {position: absolute; background-color: #DFDAD7; width: .7em; height: 2.4em; top: 1.05em; left: 1.9em;}
+
+
+
+
     </style>
     <body>
         <div class="spacer"></div>
@@ -70,6 +87,20 @@
             <div class="item" id="item-2">
                 <input type="checkbox" value="recurring">
                 <input type="checkbox" value="item-2">
+                <img src="TAP_Ad_300x300.jpg" alt="img">
+                <p>text goes here</p>
+            </div>
+                <div class="circle-wrapper">
+                <div class="circle-plus" name="circle">
+                  <div class="circle">
+                    <div class="horizontal"></div>
+                    <div class="vertical"></div>
+                  </div>
+                </div>
+            </div>
+            <div class="item" id="new-item" style="display:none">
+                <input type="checkbox" value="recurring">
+                <input type="checkbox" name="new-item">
                 <img src="TAP_Ad_300x300.jpg" alt="img">
                 <p>text goes here</p>
             </div>
@@ -102,6 +133,15 @@
                     document.querySelector('#active').appendChild(this)
                 }
             })
+        })
+
+        document.querySelector('.circle-wrapper').addEventListener('click', function(){
+            const newElement = document.getElementById('new-item').cloneNode(true);
+            newElement.name = 'item' + '-' + document.querySelectorAll('.item').length;
+            newElement.id = 'item' + '-' + document.querySelectorAll('.item').length;
+            newElement.getElementsByTagName('input')[1].name = newElement.name;
+            newElement.style.display = null;
+            document.getElementById('inactive').insertBefore(newElement, this);
         })
 
         // data = ''
